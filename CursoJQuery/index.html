@@ -134,6 +134,37 @@
             }
             //si una clase esta presente la quita si no esta presente la agrega
             $("password").toggleClass("mi_clase");
+
+            //MODIFICAR ATRIBUTOS y PROPIEDADES
+            //Atributos son los valores que se encuentran en las etiquetas HTML como alt="" en la etiqueta img
+            //Propiedaddes son las caracteristicas internas de los elementos y que son modificables
+            //.atrr saca el valor que se encuentra definido en el html y .promp saca el valor actual si se ha modiciado con js
+            //usar .prop siempre menos cuando trabajamos con angular
+
+            /*Hacen lo mismo, se pueden guardar en variables*/
+            $('img').prop("src", "./img/c1.jpg");
+            $('img').attr("src", "./img/c1.jpg");
+
+            //eliminar 
+            //$('img').removeAttr("src");
+
+            //MODIFICAR EL DOM el html
+            //elimina el contenido de la etiqueta
+            $('.card').last().empty();
+
+            //.html seleciona el codigo o lo cambia con lo que se coloque dentro de sus parentesis
+            var lista = $('.iconized').html();
+
+            //append para añadir codigo antes de la etiqueta seleccionda
+            $("ul.iconized").append("<li>Después</li>");
+            //wrap para envolver
+            //val() sirve para añadir un valor a una etiqueta porejemplo un input de un formulario
+            $("img").attr("src", "./img/jquery.png");
+
+
+
+
+
         });
 
     </script>
