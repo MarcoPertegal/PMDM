@@ -1,5 +1,20 @@
+#card {
+    width: 580px;
+    height: 210px;
+}
+
 div img {
     position: relative;
-    left: 0px;
-    width: 300px;
+    top: -20px;
+    left: 70px;
+    width: 400px;
+}
+
+#card {
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.d-flex :first-child p {
+    margin-bottom: 60px;
 }
