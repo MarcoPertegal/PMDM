@@ -1,0 +1,43 @@
+#restaurantCard {
+    background-color: #f1f1f1;
+    width: 600px;
+    height: 550px;
+    margin-left: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+#comida1 img {
+    width: 500px;
+    height: 450px;
+    margin-left: 50px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+#circulo {
+    background-color: rgba(0, 123, 255, 0.2);
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: -200px;
+    left: -20px;
+    z-index: 0;
+}
+
+#card-info {
+    position: absolute;
+    width: 500px;
+    height: 450px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: linear-gradient(to bottom, rgb(250, 249, 249) 40%, rgba(255, 0, 0, 0) 100%);
+}
