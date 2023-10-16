@@ -23,18 +23,6 @@
     transform: translate(-50%, -50%);
 }
 
-#visor {
-    font-family: 'Press Start 2P', cursive;
-}
-
-#historico {
-    font-family: 'Press Start 2P', cursive;
-}
-
-#titulo {
-    font-family: 'Lobster', cursive;
-}
-
 .borda {
     -webkit-box-shadow: 0 3px 9px black;
     box-shadow: 0 3px 9px black;
