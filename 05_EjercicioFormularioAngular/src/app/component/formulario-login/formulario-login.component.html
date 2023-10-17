@@ -1,0 +1,39 @@
+<form>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="nombre" placeholder="nombre">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="apellidos" placeholder="apellidos">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="nif" placeholder="NIF">
+    </div>
+    <div class="mb-3">
+        <input type="email" class="form-control" id="email" placeholder="email">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="tlf" placeholder="Teléfono">
+    </div>
+    <div class="mb-3">
+        <select class="form-select" aria-label="Selecione un sexo">
+            <option selected>Selecione un sexo</option>
+            <option value="1">Hombre</option>
+            <option value="2">Mujer</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <select class="form-select" aria-label="Selecione una opción">
+            <option selected>Selecione una opción</option>
+            <option value="1">Buscando en Google</option>
+            <option value="2">A través de un amigo</option>
+            <option value="2">Profesor</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" id="password" placeholder="password">
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" id="password" placeholder="password">
+    </div>
+    <button (click)="enviar()" type="submit" class="btn btn-primary">Submit</button>
+</form>
