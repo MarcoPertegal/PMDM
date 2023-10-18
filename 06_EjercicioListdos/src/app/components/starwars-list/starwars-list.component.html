@@ -1,0 +1,6 @@
+<div *ngFor="let vehicle of starwarsList" class="card" style="width: 18rem;">
+    <img [src]="getUrl(vehicle.url)" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5>{{vehicle.name}}</h5>
+    </div>
+</div>
