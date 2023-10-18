@@ -50,9 +50,6 @@ const VEHICLES: vehicles[] = [
 })
 export class StarwarsListComponent {
   starwarsList = VEHICLES;
-
-
-
   public getUrl(url: string) {
     var urlPhoto = url.split('/').reverse()[1];
     return "https://starwars-visualguide.com/assets/img/vehicles/" + urlPhoto + ".jpg";
