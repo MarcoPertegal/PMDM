@@ -45,5 +45,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <section class="example-section">
-    <mat-checkbox class="example-margin">nombre</mat-checkbox>
+    <mat-checkbox class="example-margin" (change)="toggleNombreColumn()">
+        Mostrar nombre
+    </mat-checkbox>
 </section>

@@ -83,4 +83,13 @@ export class UserComponent {
   displayedColumns: string[] = ['nombre', 'apellidos', 'id', 'edad', 'sexo', 'modulos', 'tipoMatricula'];
   UserComponent = ALUMNOS;
 
+  toggleNombreColumn() {
+    const index = this.displayedColumns.indexOf('nombre');
+    if (index > -1) {
+      this.displayedColumns.splice(index, 1);
+    } else {
+      this.displayedColumns.push('nombre');
+    }
+  }
+
 }
