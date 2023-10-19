@@ -13,7 +13,42 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let alumno of alumnos">
+            <tr *ngFor="let alumno of ALUMNOS">
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellidos}}</td>
+                <td>{{alumno.id}}</td>
+                <td>{{alumno.edad}}</td>
+                <td>
+                    <i [ngClass]="obtenerIconoSexo(alumno.sexo)"></i>
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let modulo of alumno.modulos">
+                            {{modulo.nombre}} {{modulo.horas}}
+                        </li>
+                    </ul>
+                </td>
+                <td>{{alumno.tipoMatricula}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">ID</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Módulos Matriculados</th>
+                <th scope="col">Tipo de Matrícula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumno of ALUMNOS">
                 <td>{{alumno.nombre}}</td>
                 <td>{{alumno.apellidos}}</td>
                 <td>{{alumno.id}}</td>
