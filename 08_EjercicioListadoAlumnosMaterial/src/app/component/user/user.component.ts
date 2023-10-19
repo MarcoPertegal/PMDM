@@ -1,5 +1,20 @@
 import { Component } from '@angular/core';
-import { Alumno } from 'src/app/model/alumno.interface';
+
+
+export interface Alumno {
+  nombre: string;
+  apellidos: string;
+  id: number;
+  edad: number;
+  sexo: 'H' | 'M';
+  modulos: Modulo[];
+  tipoMatricula: 'completa' | 'parcial';
+}
+
+export interface Modulo {
+  nombre: string;
+  horas: number;
+}
 
 const ALUMNOS: Alumno[] = [
   {
@@ -59,16 +74,13 @@ const ALUMNOS: Alumno[] = [
 ];
 
 @Component({
-  selector: 'app-list-alumnos',
-  templateUrl: './list-alumnos.component.html',
-  styleUrls: ['./list-alumnos.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class ListAlumnosComponent {
+export class UserComponent {
 
-  obtenerIconoSexo(sexo: string) {
-    if (sexo == 'H')
-      return 'bi bi-gender-male';
-    else
-      return 'bi bi-gender-female';
-  }
+  displayedColumns: string[] = ['nombre', 'apellidos', 'id', 'edad', 'sexo', 'modulos', 'tipoMatricula'];
+  UserComponent = ALUMNOS;
+
 }
