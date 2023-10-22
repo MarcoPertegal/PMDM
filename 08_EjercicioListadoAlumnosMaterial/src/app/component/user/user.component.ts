@@ -1,20 +1,5 @@
 import { Component } from '@angular/core';
-
-
-export interface Alumno {
-  nombre: string;
-  apellidos: string;
-  id: number;
-  edad: number;
-  sexo: 'H' | 'M';
-  modulos: Modulo[];
-  tipoMatricula: 'completa' | 'parcial';
-}
-
-export interface Modulo {
-  nombre: string;
-  horas: number;
-}
+import { Sex, Alumno } from 'src/app/models/alumno.inteface';
 
 const ALUMNOS: Alumno[] = [
   {
@@ -22,7 +7,7 @@ const ALUMNOS: Alumno[] = [
     apellidos: 'Prieto',
     id: 1,
     edad: 34,
-    sexo: 'H',
+    sexo: Sex.Male,
     modulos: [
       {
         nombre: 'Módulo A',
@@ -40,7 +25,7 @@ const ALUMNOS: Alumno[] = [
     apellidos: 'García',
     id: 2,
     edad: 14,
-    sexo: 'H',
+    sexo: Sex.Male,
     modulos: [
       {
         nombre: 'Módulo A',
@@ -58,7 +43,7 @@ const ALUMNOS: Alumno[] = [
     apellidos: 'Sanchez',
     id: 3,
     edad: 19,
-    sexo: 'M',
+    sexo: Sex.Female,
     modulos: [
       {
         nombre: 'Módulo A',
@@ -80,16 +65,27 @@ const ALUMNOS: Alumno[] = [
 })
 export class UserComponent {
 
-  displayedColumns: string[] = ['nombre', 'apellidos', 'id', 'edad', 'sexo', 'modulos', 'tipoMatricula'];
-  UserComponent = ALUMNOS;
+  displayedColumns: string[] = ['id', 'nombre', 'apellidos', 'modulos'];
+  alumnosList = ALUMNOS; //se le asigna alumnos para recorrerlos en la tabla he ir pintnado datos
 
-  toggleNombreColumn() {
-    const index = this.displayedColumns.indexOf('nombre');
-    if (index > -1) {
-      this.displayedColumns.splice(index, 1);
-    } else {
+  checkColumnId: boolean = true;
+  checkColumnName: boolean = true;
+  checkColumnSurname: boolean = true;
+  checkColumnSubjects: boolean = true;
+
+  checkboxClicked() {
+    this.displayedColumns = []; //aqui se limpia el array
+    if (this.checkColumnId) { //Aqui se comprueba si es true y si es true se pushea al array
+      this.displayedColumns.push('id');
+    }
+    if (this.checkColumnName) {
       this.displayedColumns.push('nombre');
     }
+    if (this.checkColumnSurname) {
+      this.displayedColumns.push('apellidos');
+    }
+    if (this.checkColumnSubjects) {
+      this.displayedColumns.push('modulos');
+    }
   }
-
 }

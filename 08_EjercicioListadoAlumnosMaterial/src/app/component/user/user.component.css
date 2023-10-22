@@ -1,7 +1,7 @@
-table {
-    max-width: 200px;
+section {
+    background-color: black;
 }
 
-section {
+.checks {
     background-color: black;
 }
