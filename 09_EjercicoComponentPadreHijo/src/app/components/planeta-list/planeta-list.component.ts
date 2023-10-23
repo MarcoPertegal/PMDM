@@ -248,4 +248,5 @@ const STARWARS_RESPONSE: StarwarsListResponse = {
 })
 export class PlanetaListComponent {
   starwarsList = STARWARS_RESPONSE.results; //results esta sacado del json results = [];
+  //starwarsList es la variable que se va a recorrer en el ngfor
 }
