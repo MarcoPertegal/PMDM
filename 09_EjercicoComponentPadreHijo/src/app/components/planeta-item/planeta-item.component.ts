@@ -9,4 +9,5 @@ import { Planeta } from 'src/app/models/planeta-list.interface';
 export class PlanetaItemComponent {
   @Input() planeta!: Planeta; //aqui lo que esta diciendo esque la variable planeta le va a venir del pladre con @Input, el ! indica wu puede ser nulo y Planeta
   //indica que la variable es de tipo planeta por eso lo estamos importando
+  //planeta aparece en el componente padre [planeta]= por lo que el nombre debe coincidir
 }
