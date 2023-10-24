@@ -1,0 +1,16 @@
+<div class="row">
+    <app-people-item class="mt-2 col-3" *ngFor="let p of peopleList" [people]="p"></app-people-item>
+</div>
+
+<ng-template #peopleModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ selectedPerson?.name }}</h4>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <p>Nombre: {{ selectedPerson?.name }}</p>
+            </div>
+        </form>
+    </div>
+</ng-template>
