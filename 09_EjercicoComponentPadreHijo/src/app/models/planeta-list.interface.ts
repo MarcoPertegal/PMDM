@@ -1,3 +1,5 @@
+//A LA INTERFAZ hay que llamarla con -Response detrás
+// results: Planeta[]; results no se le puede cambiar el nombre
 export interface StarwarsListResponse {
     count: number;
     next: string;
