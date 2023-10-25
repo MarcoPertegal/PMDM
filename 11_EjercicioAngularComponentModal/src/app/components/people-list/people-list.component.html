@@ -1,16 +1,31 @@
 <div class="row">
-    <app-people-item class="mt-2 col-3" *ngFor="let p of peopleList" [people]="p"></app-people-item>
+    <!-- con el ngFor recorremos la lista de people -->
+    <ng-container *ngFor="let p of peopleList">
+        <!-- Con [people]="p" pasamos la people p que se esta recorriendo al hijo usando @Input
+        en el hijo para recogerlo, 
+        peopleClick es un evento creado en el componente hijo y recogido en el padre usando el mismo nombre
+        entre parentesis
+        Creamos el metodo openModal() y le pasamos el modal que tenemos en la misma clase #peopleModal y 
+        la people que está recorriendo el ngFor-->
+        <app-people-item class="mt-2 col-3" [people]="p" (peopleClick)="openModal(peopleModal, p)"></app-people-item>
+    </ng-container>
 </div>
 
 <ng-template #peopleModal let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">{{ selectedPerson?.name }}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <form>
             <div class="mb-3">
-                <p>Nombre: {{ selectedPerson?.name }}</p>
+                <!-- Se le pone el interrogante si no da error,
+                selectedPeople es una variable de tipo people a la que le hemos guardado una people pasandole p al metodo 
+                openModal() dentro de este metodo guardamos esa people en la varible y la llamamos aqui-->
+                <p>{{selectedPeople?.name}}</p>
             </div>
         </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
     </div>
 </ng-template>

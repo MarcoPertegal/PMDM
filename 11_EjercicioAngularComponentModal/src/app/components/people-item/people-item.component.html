@@ -1,7 +1,11 @@
+<!-- Cada card con imagen que aparece en el listado es una instancia del componente hijo -->
 <div class="card">
     <img [src]="getPeopleImage()" class="card-img-top" alt="...">
     <div class="card-body">
+        <!-- Como aquí si tenemos un objeto people lo podemos llamar directamente y sacar algún atributo 
+        como su name-->
         <h5 class="card-title">{{people.name}}</h5>
-        <button class="btn btn-primary" (click)="viewPeopleDetail()">View detail</button>
+        <!-- Creamos un evento click que active el metodo viewPeopleDetail()-->
+        <button class="btn btn-primary" (click)="viewPeopleDetail()">Ver más</button>
     </div>
 </div>

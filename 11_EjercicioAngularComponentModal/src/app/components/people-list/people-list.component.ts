@@ -272,13 +272,23 @@ const PEOPLE_RESPONSE =
 })
 export class PeopleListComponent {
   peopleList: People[] = PEOPLE_RESPONSE.results;
-  selectedPerson: People | null = null;
 
+  //Se le pone undefined si no da error porque la persona seleccionada puede no existir
+  selectedPeople: People | undefined;
+
+  //para usar los modales necesitamos importar la clase ngbModal e inyectar la dependencia para poder usarlo
+  //inyectar una dependencia quiere decir proporcionarle a un objeto o componente una instancia de
+  //otro objeto o componente que necesita para funcionar correctamente
   constructor(private modalService: NgbModal) { }
 
-  open(modal: any, person: People) {
-    this.selectedPerson = person;
-    this.modalService.open(modal);
+  //este metodo se activa al pinchar en el boton de la card del componente hijo ya que este metodo
+  //esta en el html junto al evento (peopleClick) que se recibe del hijo usando @Output
+  //este metodo recibe el modal del html y le indica que se abra con el metodo open y también recibe
+  //la people en la que se ha hecho click para guardarla en una variable y despues en el html 
+  //llamar a sus atributos
+  openModal(peopleModal: any, people: People) {
+    this.modalService.open(peopleModal);
+    this.selectedPeople = people;
   }
 }
 
