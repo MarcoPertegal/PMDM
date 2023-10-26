@@ -7,6 +7,16 @@
             modal para que lo abra-->
     </ng-container>
 </div>
+<!-- Este elemento es el paginador en la pagina de angular bootstrap en api aparecen inputs para personalizar la paginacion
+en este caso usamos collectionSize para todos los elementos que se van a mostrar
+ [(page)] viene por defecto en el pagination y te pasa el numero de la pagina para que podamos guardarlo en una varibale le podemos
+añadir un valor por defecto a la variable pageNumber para que empiece en esa pagina
+pageChange es un output de pagination que podemos agregar se activa el evento pageChange cuando la pagina cambia y llamamos al
+metodo loadNewPage() para que nos pinte la página-->
+<ngb-pagination [collectionSize]="count" [(page)]="pageNumber" (pageChange)="loadNewPage()"
+    aria-label="Default pagination"></ngb-pagination>
+
+
 
 <ng-template #vehicleModal let-modal>
     <div class="modal-header">

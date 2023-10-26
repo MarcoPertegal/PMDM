@@ -13,14 +13,27 @@ export class VehicleListComponent {
   vehicleUrl: Vehicle | undefined;
   selectedVehicle: Vehicle | undefined;
 
+  //para la paginacion creamos una variable para el numero de la página y otra para el numero total de elementos
+  pageNumber: number = 1;
+  count: number = 0;
+
   //para poder llamar a los metodos del servicio hay que colocarlo en el contructor
   constructor(private vehicleService: VehicleService, private modalService: NgbModal) { }
 
   //ngOnInit indica que ese metodo se va a lanzar en cuanto se cargue la página
-  //llamamos al metodo del servicio y guardamos lo que devuelve en una varible
+  //llamamos al metodo que nos pinta las paginas
   ngOnInit(): void {
-    this.vehicleService.getVehicleList().subscribe(resp => {
+    this.loadNewPage();
+  }
+
+  //Este metodo llama al servicio y le pasamos el pageNumber que tenemos guardado en nuestra variable que se va 
+  //actualizado usando el [(page)]="pageNumber" del html para saber la página en la que estamos la consulta nos 
+  //devuelve VehicleListResponse desdfe hay podemos acceder a count y para acceder a la lista accedemos a su 
+  //array de results para obtener los vehiculos 
+  loadNewPage() {
+    this.vehicleService.getVehicleList(this.pageNumber).subscribe(resp => {
       this.vehicleList = resp.results;
+      this.count = resp.count;
     })
   }
 

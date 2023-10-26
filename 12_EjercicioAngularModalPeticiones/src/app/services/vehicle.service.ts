@@ -13,8 +13,9 @@ export class VehicleService {
 
   //El Observable indica de que tipo es el obejto que devuelve, dentro montamos la peticion le decimos el tipo y entre parentesis la url de donde debe sacar los datos 
   //el nombre del tipo debe ser igual que los tipos que tenemos en la interfaz 
-  getVehicleList(): Observable<VehicleListResponse> {
-    return this.http.get<VehicleListResponse>('https://swapi.dev/api/vehicles/?page=1');
+  //Para paginar modificamos la consulta y le pasamos el numero de la página ya que en la api viene en la url
+  getVehicleList(page: number): Observable<VehicleListResponse> {
+    return this.http.get<VehicleListResponse>(`https://swapi.dev/api/vehicles/?page=${page}`);
   }
 
 
