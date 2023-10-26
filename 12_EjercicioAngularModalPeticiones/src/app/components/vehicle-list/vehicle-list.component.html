@@ -1,3 +1,27 @@
 <div class="row">
-    <app-vehicle-item class="mt-2 col-3" *ngFor="let v of vehicleList" [vehicle]="v"></app-vehicle-item>
+    <ng-container *ngFor="let v of vehicleList">
+        <app-vehicle-item class="mt-2 col-3" [vehicle]="v"
+            (vehicleClick)="openModal($event, vehicleModal)"></app-vehicle-item>
+        <!-- $event coge el atributo u objeto pasado por el metodo .emit del hijo vehicleClick, en este caso la url, debe ir siempre primero y 
+                esta url se le pasa al metodo openModal para hacer la consulta en el servicio que necesita esa url, también se la pasa el 
+            modal para que lo abra-->
+    </ng-container>
 </div>
+
+<ng-template #vehicleModal let-modal>
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <!-- La interrogación se coloca porque el nombre puede ser undefined -->
+                <p>{{selectedVehicle?.name}}</p>
+                <p>{{selectedVehicle?.cargo_capacity}}</p>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>

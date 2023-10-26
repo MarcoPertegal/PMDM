@@ -28,6 +28,7 @@ export class PeopleItemComponent {
     this.peopleClick.emit();
   }
 
+
   //@Output() peopleClick = new EventEmitter<People>();
   /*
   viewPeopleDetail() {
