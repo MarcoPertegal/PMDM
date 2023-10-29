@@ -9,25 +9,14 @@ import { RickandmortyService } from 'src/app/services/rickandmorty.service';
 })
 export class ListFilterComponent implements OnInit {
 
-
-  //sustituir por la ultima respuesra del chat y decirle que a esa respuesta la adapte a el material 
-  //restablecer pestañas de google
-
-
-
-
-
-
-
-  /*
   characterList: Character[] = [];
-  
 
   constructor(private rickandmortyService: RickandmortyService) { }
 
+  //da error porque el metodo getRickandmortyList() del servicio debe recibir un nombre
   ngOnInit(): void {
     this.rickandmortyService.getRickandmortyList().subscribe(resp => {
       this.characterList = resp.results;
     })
-  }*/
+  }
 }
