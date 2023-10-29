@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { VehicleListResponse } from '../models/vehicle-list.interface';
-import { ViewVehicleDetail } from '../models/vehicle-details.interface';
+import { ViewVehicleDetailResponse } from '../models/vehicle-details.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class VehicleService {
 
 
   //esta url: string viene dada en el vehicle-list  
-  getVehicleUrl(url: string): Observable<ViewVehicleDetail> {
-    return this.http.get<ViewVehicleDetail>(url);
+  getVehicleUrl(url: string): Observable<ViewVehicleDetailResponse> {
+    return this.http.get<ViewVehicleDetailResponse>(url);
   }
 }
