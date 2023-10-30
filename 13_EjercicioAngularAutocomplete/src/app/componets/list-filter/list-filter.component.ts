@@ -13,10 +13,29 @@ export class ListFilterComponent implements OnInit {
 
   constructor(private rickandmortyService: RickandmortyService) { }
 
-  //da error porque el metodo getRickandmortyList() del servicio debe recibir un nombre
   ngOnInit(): void {
     this.rickandmortyService.getRickandmortyList().subscribe(resp => {
       this.characterList = resp.results;
     })
   }
+  //NO HACEN FALTA DOS PETICIONES GET SINO QUE UNO PARA EL LISTADO Y OTRA PARA EL DETALLE
+
+  /*
+  myControl = new FormControl('');
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<string[]>;
+
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+  */
 }
