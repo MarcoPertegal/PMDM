@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "14_EjemploAngularRouting": {
+    "14_EjercicioMenuRouting": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/14-ejemplo-angular-routing",
+            "outputPath": "dist/14-ejercicio-menu-routing",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "14_EjemploAngularRouting:build:production"
+              "browserTarget": "14_EjercicioMenuRouting:build:production"
             },
             "development": {
-              "browserTarget": "14_EjemploAngularRouting:build:development"
+              "browserTarget": "14_EjercicioMenuRouting:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "14_EjemploAngularRouting:build"
+            "browserTarget": "14_EjercicioMenuRouting:build"
           }
         },
         "test": {
@@ -95,8 +95,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "99bdecf6-272c-46b3-bfd4-0510626bc8e2"
   }
 }
