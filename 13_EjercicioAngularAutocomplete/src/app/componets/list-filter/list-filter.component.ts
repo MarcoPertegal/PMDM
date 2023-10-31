@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable, map, startWith } from 'rxjs';
 import { Character } from 'src/app/models/rickandmorty-list.interface';
 import { RickandmortyService } from 'src/app/services/rickandmorty.service';
 
@@ -8,34 +10,28 @@ import { RickandmortyService } from 'src/app/services/rickandmorty.service';
   styleUrls: ['./list-filter.component.css']
 })
 export class ListFilterComponent implements OnInit {
-
-  characterList: Character[] = [];
+  characterList!: Character[];
+  myControl = new FormControl<string | Character>('');
+  filteredOptions !: Observable<Character[]>;
 
   constructor(private rickandmortyService: RickandmortyService) { }
 
   ngOnInit(): void {
     this.rickandmortyService.getRickandmortyList().subscribe(resp => {
       this.characterList = resp.results;
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => {
+          const characterName = typeof value === 'string' ? value : value?.name;
+          return characterName ? this._filter(characterName as string) : this.characterList;
+        })
+      );
     })
   }
-  //NO HACEN FALTA DOS PETICIONES GET SINO QUE UNO PARA EL LISTADO Y OTRA PARA EL DETALLE
 
-  /*
-  myControl = new FormControl('');
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+  private _filter(name: string): Character[] {
+    const filterValue = name.toLowerCase();
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
+    return this.characterList.filter(c => c.name.toLowerCase().includes(filterValue));
   }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
-  */
 }

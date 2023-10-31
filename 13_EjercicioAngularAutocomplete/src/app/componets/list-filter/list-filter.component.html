@@ -1,19 +1,19 @@
 <div class="row">
-    <ng-container *ngFor="let c of characterList">
+    <div class="col-12">
+        <mat-form-field>
+            <input type="text" placeholder="Buscar personaje" matInput [formControl]="myControl"
+                [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let character of filteredOptions | async" [value]="character">
+                    {{ character.name }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="row">
+    <ng-container *ngFor="let c of filteredOptions | async">
         <app-item-filter class="mt-2 col-3" [character]="c"></app-item-filter>
     </ng-container>
 </div>
-
-<!-- Filtrado 
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-        <mat-label>Number</mat-label>
-        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-</form>-->
