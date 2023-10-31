@@ -1,0 +1,13 @@
+div {
+    width: 100%;
+}
+
+.title {
+    margin-left: 10%;
+    padding: 2%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: rgb(11, 181, 181);
+    width: 25%;
+    text-align: center;
+}
