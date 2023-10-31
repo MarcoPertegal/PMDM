@@ -1,0 +1,5 @@
+<div class="list-group list-group-horizontal position-relative overflow-auto">
+    <ng-container *ngFor="let m of movieTopRatedList">
+        <app-movie-popular-item id="card" class="list-group-item" [movie]="m"></app-movie-popular-item>
+    </ng-container>
+</div>
