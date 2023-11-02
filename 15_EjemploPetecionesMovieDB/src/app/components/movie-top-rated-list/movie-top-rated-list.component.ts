@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MovieDetailsResponse } from 'src/app/models/movie-details.interface';
-import { Movie } from 'src/app/models/movie-top-ranked.interface';
+import { MovieTopRated } from 'src/app/models/movie-top-ranked.interface';
 import { MovieTopRankedService } from 'src/app/services/movie-top-ranked.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { MovieTopRankedService } from 'src/app/services/movie-top-ranked.service
   styleUrls: ['./movie-top-rated-list.component.css']
 })
 export class MovieTopRatedListComponent {
-  movieTopRatedList: Movie[] = [];
-  selectedMovie: MovieDetailsResponse | undefined;
+  movieTopRatedList: MovieTopRated[] = [];
+  selectedMovie!: MovieDetailsResponse;
 
   constructor(private movieTopRankedService: MovieTopRankedService, private modalService: NgbModal) { }
 

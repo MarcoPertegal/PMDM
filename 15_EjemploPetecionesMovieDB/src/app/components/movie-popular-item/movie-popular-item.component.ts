@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Movie } from 'src/app/models/movie-popular.interface';
+import { MoviePopular } from 'src/app/models/movie-popular.interface';
 
 @Component({
   selector: 'app-movie-popular-item',
@@ -7,14 +7,14 @@ import { Movie } from 'src/app/models/movie-popular.interface';
   styleUrls: ['./movie-popular-item.component.css']
 })
 export class MoviePopularItemComponent {
-  @Input() movie!: Movie;
+  @Input() moviePopular!: MoviePopular;
   @Output() movieClick = new EventEmitter<number>();
 
   getMovieImage() {
-    return `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}`;
+    return `https://image.tmdb.org/t/p/w500/${this.moviePopular.poster_path}`;
   }
 
   viewMovieDetail() {
-    this.movieClick.emit(this.movie.id);
+    this.movieClick.emit(this.moviePopular.id);
   }
 }

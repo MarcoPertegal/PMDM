@@ -1,20 +1,20 @@
 <div class="list-group list-group-horizontal position-relative overflow-auto">
     <ng-container *ngFor="let m of movieTopRatedList">
-        <app-movie-top-rated-item class="list-group-item" [movie]="m"
+        <app-movie-top-rated-item class="list-group-item" [movieTopRated]="m"
             (movieClick)="openModal($event, movieTopRatedModal)"></app-movie-top-rated-item>
     </ng-container>
 </div>
 <ng-template #movieTopRatedModal let-modal>
     <div class="modal-header">
-        <h5 class="modal-title">{{selectedMovie?.title}}</h5>
+        <h5 class="modal-title">{{selectedMovie.title}}</h5>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <form>
             <div class="mb-3">
-                <p><span class="fw-bold">Popularidad: </span>{{selectedMovie?.popularity}}</p>
-                <p><span class="fw-bold">Lanzamiento: </span>{{selectedMovie?.release_date}}</p>
-                <p><span class="fw-bold">Presupuesto: </span>{{selectedMovie?.budget}}</p>
+                <p><span class="fw-bold">Popularidad: </span>{{selectedMovie.popularity}}</p>
+                <p><span class="fw-bold">Lanzamiento: </span>{{selectedMovie.release_date}}</p>
+                <p><span class="fw-bold">Presupuesto: </span>{{selectedMovie.budget}}</p>
             </div>
         </form>
     </div>

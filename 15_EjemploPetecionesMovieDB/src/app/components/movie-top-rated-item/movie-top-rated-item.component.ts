@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Movie } from 'src/app/models/movie-top-ranked.interface';
+import { MovieTopRated } from 'src/app/models/movie-top-ranked.interface';
 
 @Component({
   selector: 'app-movie-top-rated-item',
@@ -7,14 +7,14 @@ import { Movie } from 'src/app/models/movie-top-ranked.interface';
   styleUrls: ['./movie-top-rated-item.component.css']
 })
 export class MovieTopRatedItemComponent {
-  @Input() movie!: Movie;
+  @Input() movieTopRated!: MovieTopRated;
   @Output() movieClick = new EventEmitter<number>();
 
   getMovieImage() {
-    return `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}`;
+    return `https://image.tmdb.org/t/p/w500/${this.movieTopRated.poster_path}`;
   }
 
   viewMovieDetail() {
-    this.movieClick.emit(this.movie.id);
+    this.movieClick.emit(this.movieTopRated.id);
   }
 }

@@ -2,12 +2,12 @@
 
 export interface MoviePopularResponse {
     page: number;
-    results: Movie[];
+    results: MoviePopular[];
     total_pages: number;
     total_results: number;
 }
 
-export interface Movie {
+export interface MoviePopular {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];
