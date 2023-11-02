@@ -1,21 +1,18 @@
-<div class="container">
-  <div class="row col-12">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">THE MOVIE DB</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a routerLink="/Movies" class="nav-link" href="#">Movie List</a>
-          </div>
-        </div>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div id="menu" class="container-fluid">
+    <a class="navbar-brand text-light" href="#">THE MOVIE DB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a routerLink="/movies" class="nav-link text-light" href="#">Movie List</a>
       </div>
-    </nav>
+    </div>
   </div>
-
+</nav>
+<div class="container">
   <div class="row col-12">
     <router-outlet></router-outlet>
   </div>

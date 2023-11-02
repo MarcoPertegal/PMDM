@@ -1,0 +1,14 @@
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#menu {
+    margin-left: 45px;
+}
+
+.container {
+    margin-top: 60px;
+}

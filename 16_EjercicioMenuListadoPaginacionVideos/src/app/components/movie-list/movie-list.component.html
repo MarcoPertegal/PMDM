@@ -3,6 +3,5 @@
         <app-movie-item class="mt-2 col-3" [movie]="m"></app-movie-item>
     </ng-container>
 </div>
-
-<ngb-pagination [collectionSize]="count" [(page)]="pageNumber" (pageChange)="loadNewPage()"
-    aria-label="Default pagination"></ngb-pagination>
+<ngb-pagination [collectionSize]="count" [maxSize]="3" [rotate]="true" [(page)]="pageNumber"
+    (pageChange)="loadNewPage()" aria-label="Default pagination"></ngb-pagination>

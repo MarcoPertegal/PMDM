@@ -1,1 +1,19 @@
-<p>movie-details works!</p>
+<div class="container mt-1">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="video-container">
+                <iframe width="560" height="315" [src]="loadMovieVideo()"></iframe>
+            </div>
+        </div>
+        <div class="col-md-8">
+
+            <h1>{{movieDetails.title}}</h1>
+            <p>Release: {{movieDetails.release_date}}</p>
+            <p>Popularity: {{movieDetails.popularity}}</p>
+            <p>Duración: {{movieDetails.runtime}} min</p>
+            <p>Presupuesto: {{movieDetails.budget}} $</p>
+
+            <a href="#" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
