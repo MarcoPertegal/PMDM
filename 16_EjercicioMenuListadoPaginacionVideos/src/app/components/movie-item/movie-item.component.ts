@@ -19,5 +19,4 @@ export class MovieItemComponent {
   viewMovieDetails(movieId: number) {
     this.router.navigate(['/movie/', movieId]);
   }
-
 }

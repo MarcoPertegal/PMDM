@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetailsResponse } from 'src/app/models/movie-details.interface';
 import { Video } from 'src/app/models/movie-video.interface';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -13,8 +14,9 @@ export class MovieDetailsComponent implements OnInit {
   movieId!: number;
   movieDetails!: MovieDetailsResponse;
   movieVideo!: Video;
+  urlVideo: SafeResourceUrl | undefined;
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     //Metodo de route para conseguir el id pasado desde el movie item
@@ -32,13 +34,16 @@ export class MovieDetailsComponent implements OnInit {
     this.movieService.getDetailsById(movieId).subscribe(resp => {
       this.movieDetails = resp;
     });
+    //no lo mostraba porque es una peticion asincrona se rayaba al poner el return por lo que hay que guardarlo en una variable
+    //despies se llama directamente a la varible en el src, investigar más tiene que ver con la consulta
+    this.movieService.getVideoById(this.movieId).subscribe(resp => {
+      this.movieVideo = resp.results[0];
+      this.urlVideo = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.movieVideo.key}`);
+    });
   }
-  loadMovieVideo() {
-    if (this.movieDetails.video) {
-      this.movieService.getVideoById(this.movieId).subscribe(resp => {
-        this.movieVideo = resp.results[0];
-        return `https://www.youtube.com/embed/${this.movieVideo.key}`;
-      });
-    }
+
+
+  getMovieImage() {
+    return `https://image.tmdb.org/t/p/w500/${this.movieDetails.poster_path}`;
   }
 }
