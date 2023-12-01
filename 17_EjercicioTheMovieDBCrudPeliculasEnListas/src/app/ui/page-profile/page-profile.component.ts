@@ -11,6 +11,7 @@ export class PageProfileComponent implements OnInit {
   active = 1;
   movieListFavorite: Movie[] = [];
   movieListWatchList: Movie[] = [];
+  movieCustomList: any[] = [];
   pageNumberFavorite: number = 1;
   pageNumberWatchList: number = 1;
   countFavorite: number = 0;
@@ -29,6 +30,9 @@ export class PageProfileComponent implements OnInit {
       const watchListsIds = this.movieListWatchList.map(movie => movie.id);
       localStorage.setItem('WATCHLISTS_IDS', watchListsIds.toString());
     });
+    this.accountService.getCustomLists().subscribe(resp => {
+      this.movieCustomList = resp.results;
+    });
   }
 
   getUsername() {
@@ -37,4 +41,5 @@ export class PageProfileComponent implements OnInit {
   getAvatar() {
     return localStorage.getItem('AVATAR');
   }
+
 }

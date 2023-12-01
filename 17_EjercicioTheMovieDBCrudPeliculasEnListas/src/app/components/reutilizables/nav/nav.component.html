@@ -20,10 +20,12 @@
                     </li>
                 </ul>
             </div>
-            <button id="login" *ngIf="!isLoggedIn" class="navbar-text col-md-1 rounded-3 mt-2" (click)="doLogin()">
+            @if (!isLoggedIn) {
+            <button id="login" class="navbar-text col-md-1 rounded-3 mt-2" (click)="doLogin()">
                 Login
             </button>
-            <div id="user" *ngIf="isLoggedIn" class="navbar-text col-md-3">
+            } @else {
+            <div id="user" class="navbar-text col-md-3">
                 <div>
                     <button id="login" class="navbar-text col-md-1 rounded-3 mt-2" (click)="logout()">
                         Logout
@@ -36,6 +38,7 @@
                     <img [src]="getAvatar()" alt="Avatar del usuario">
                 </a>
             </div>
+            }
         </div>
     </div>
 </nav>

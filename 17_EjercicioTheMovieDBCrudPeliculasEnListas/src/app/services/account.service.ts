@@ -5,6 +5,7 @@ import { AccountDetailsResponse } from '../models/account-details.interface';
 import { Observable } from 'rxjs';
 import { MovieListResponse } from '../models/movie-list.interface';
 import { AddItemResponse } from '../models/add-item.interface';
+import { AccountCustomListResponse } from '../models/account-custom-list.interface';
 
 
 
@@ -134,6 +135,17 @@ export class AccountService {
         }
       }
     );
+  }
+
+  getCustomLists(): Observable<AccountCustomListResponse> {
+    let sessionId = localStorage.getItem('SESSION_ID');
+    return this.http.get<AccountCustomListResponse>(`${environment.baseUrl}/account/session_id=${sessionId}/lists`,
+      {
+        headers: {
+          accept: 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      });
   }
 }
 

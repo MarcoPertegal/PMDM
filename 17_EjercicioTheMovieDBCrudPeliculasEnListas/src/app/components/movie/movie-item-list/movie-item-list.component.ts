@@ -30,10 +30,6 @@ export class MovieItemListComponent implements OnInit {
     return `https://www.themoviedb.org/t/p/w220_and_h330_face${this.movie.poster_path}`
   }
 
-  movieDetails(id: number) {
-    this.router.navigate([`/page-movie-details/${id}`]);
-  }
-
   addToFavorites(id: number) {
     this.accountService.addMovieToFovorites(id).subscribe(() => {
       console.log("Película con id:" + id + " agregada a favoritos");
@@ -48,5 +44,9 @@ export class MovieItemListComponent implements OnInit {
     this.accountService.deleteMovieFromFovorites(id).subscribe(() => {
       console.log("Película con id:" + id + " eliminada de favoritos");
     });
+  }
+
+  addToCustomlist(id: number) {
+
   }
 }
