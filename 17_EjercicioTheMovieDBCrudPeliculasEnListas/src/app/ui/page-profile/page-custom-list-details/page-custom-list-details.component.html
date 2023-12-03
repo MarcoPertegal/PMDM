@@ -1,0 +1,23 @@
+<h3 class="text-light">{{customListDetails.name}}</h3>
+
+@for (ms of movieOrSerieList; track $index) {
+<div class="container">
+    <div class="row">
+        <div class="contenedor col-2 pt-5">
+            <img [src]=getImage(ms.poster_path) alt="" width="270px">
+            <div class="text container">
+                <div class="d-flex justify-content-between pt-3">
+                    <div class="title">
+                        <h5 class="title"><strong>{{ms.title}}</strong></h5>
+                    </div>
+                </div>
+                <div class="mt-auto d-flex justify-content-between pt-3">
+                    <div class="pt-2">
+                        <p>{{ms.release_date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

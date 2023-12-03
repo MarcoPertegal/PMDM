@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { MovieListResponse } from '../models/movie-list.interface';
 import { AddItemResponse } from '../models/add-item.interface';
 import { AccountCustomListResponse } from '../models/account-custom-list.interface';
+import { AccountCustomListDetailsResponse } from '../models/account-custom-list-details.interface';
 
 
 
@@ -140,6 +141,16 @@ export class AccountService {
   getCustomLists(): Observable<AccountCustomListResponse> {
     let sessionId = localStorage.getItem('SESSION_ID');
     return this.http.get<AccountCustomListResponse>(`${environment.baseUrl}/account/session_id=${sessionId}/lists`,
+      {
+        headers: {
+          accept: 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      });
+  }
+  //https://developer.themoviedb.org/reference/list-details para hacer la consulta de list details
+  getCustomListDetails(listId: number): Observable<AccountCustomListDetailsResponse> {
+    return this.http.get<AccountCustomListDetailsResponse>(`${environment.baseUrl}/list/${listId}`,
       {
         headers: {
           accept: 'application/json',

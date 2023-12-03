@@ -11,6 +11,7 @@ import { PageProfileComponent } from './ui/page-profile/page-profile.component';
 import { AuthenticationApprovedComponent } from './components/profile/authentication-approved/authentication-approved.component';
 import { FooterComponent } from './components/reutilizables/footer/footer.component';
 import { NavComponent } from './components/reutilizables/nav/nav.component';
+import { PageCustomListDetailsComponent } from './ui/page-profile/page-custom-list-details/page-custom-list-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavComponent } from './components/reutilizables/nav/nav.component';
     PageProfileComponent,
     AuthenticationApprovedComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    PageCustomListDetailsComponent
 
   ],
   imports: [

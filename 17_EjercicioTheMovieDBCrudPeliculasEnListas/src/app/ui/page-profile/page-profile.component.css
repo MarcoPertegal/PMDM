@@ -58,3 +58,11 @@
 .lists::-webkit-scrollbar-thumb:hover {
     background: #90152F;
 }
+
+.listItem {
+    background-color: #D62247;
+}
+
+.listItem:hover {
+    background-color: #9e1833;
+}

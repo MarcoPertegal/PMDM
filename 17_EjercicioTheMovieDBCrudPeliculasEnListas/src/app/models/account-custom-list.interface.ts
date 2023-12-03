@@ -2,12 +2,12 @@
 
 export interface AccountCustomListResponse {
     page: number;
-    results: Result[];
+    results: customList[];
     total_pages: number;
     total_results: number;
 }
 
-export interface Result {
+export interface customList {
     description: string;
     favorite_count: number;
     id: number;
