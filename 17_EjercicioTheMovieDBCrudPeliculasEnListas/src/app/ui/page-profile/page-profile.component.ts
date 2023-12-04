@@ -3,6 +3,9 @@ import { Movie } from '../../models/movie-list.interface';
 import { AccountService } from '../../services/account.service';
 import { customList } from '../../models/account-custom-list.interface';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-page-profile',
@@ -21,8 +24,12 @@ export class PageProfileComponent implements OnInit {
   selectedCustomListId!: number;
   deleteMessage!: string;
 
-
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(
+    private modalService: NgbModal,
+    private accountService: AccountService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
     this.accountService.getFavorites().subscribe(resp => {
@@ -54,10 +61,20 @@ export class PageProfileComponent implements OnInit {
   deleteList(customListId: number) {
     this.accountService.deleteCustomList(customListId).subscribe(resp => {
       this.deleteMessage = resp.status_message;
+      window.alert('Lista eliminada.');
     });
   }
 
+  newCustomList = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl('')
+  })
+
   createNewList() {
-    //formulario y peticion
+    this.accountService.createCustomList(this.newCustomList.value.name!, this.newCustomList.value.description!).subscribe();
+  }
+
+  createModal(createCustomList: any) {
+    this.modalService.open(createCustomList);
   }
 }

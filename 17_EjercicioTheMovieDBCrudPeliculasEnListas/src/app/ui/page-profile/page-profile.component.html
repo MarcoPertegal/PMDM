@@ -35,7 +35,8 @@
             <li [ngbNavItem]="3">
                 <button ngbNavLink>Custom Lists</button>
                 <ng-template ngbNavContent>
-                    <button type="button" class="btn btn-light ms-3" (click)="createNewList()">Create new list</button>
+                    <button type="button" class="btn btn-light ms-3" (click)="createModal(createModal)">Create new
+                        list</button>
                     @for (cl of movieCustomList; track $index) {
                     <div class="listItem rounded-3 m-3 p-2 d-flex" (click)="listDetails(cl.id)">
                         <p class="text-light">{{cl.name}}</p>
@@ -57,3 +58,28 @@
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
     </div>
 </div>
+
+<ng-template #createCustomList let-modal>
+    <div class="modal-header bg-primary">
+        <h4 class="modal-title text-white" id="modal-basic-title">Create Custom List</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form id="newCustomList" [formGroup]="newCustomList" (ngSubmit)="createNewList()">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" rows="5" cols="33" formControlName="description" class="form-control">
+                    It was a dark and stormy night...
+                </textarea>
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark" form="newCustomList">Save</button>
+        </form>
+
+    </div>
+</ng-template>

@@ -8,6 +8,7 @@ import { AddItemResponse } from '../models/add-item.interface';
 import { AccountCustomListResponse } from '../models/account-custom-list.interface';
 import { AccountCustomListDetailsResponse } from '../models/account-custom-list-details.interface';
 import { AccountCustomListDeleteResponse } from '../models/account-custom-list-delete.interface';
+import { AccountCustomListCreateResponse } from '../models/account-custom-list-create.interface';
 
 
 
@@ -162,6 +163,21 @@ export class AccountService {
 
   deleteCustomList(listId: number): Observable<AccountCustomListDeleteResponse> {
     return this.http.delete<AccountCustomListDeleteResponse>(`${environment.baseUrl}/list/${listId}`,
+      {
+        headers: {
+          accept: 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      });
+  }
+
+  createCustomList(name: string, description: string): Observable<AccountCustomListCreateResponse> {
+    return this.http.post<AccountCustomListCreateResponse>(`${environment.baseUrl}/list`,
+      {
+        "name": `${name}`,
+        "description": `${description}`,
+        "language": "en"
+      },
       {
         headers: {
           accept: 'application/json',
