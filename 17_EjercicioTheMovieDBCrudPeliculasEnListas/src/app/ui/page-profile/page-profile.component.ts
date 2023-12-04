@@ -19,6 +19,7 @@ export class PageProfileComponent implements OnInit {
   countFavorite: number = 0;
   countWatchList: number = 0;
   selectedCustomListId!: number;
+  deleteMessage!: string;
 
 
   constructor(private accountService: AccountService, private router: Router) { }
@@ -49,6 +50,13 @@ export class PageProfileComponent implements OnInit {
   listDetails(customListId: number) {
     this.router.navigate([`/page-custom-list-details/${customListId}`]);
   }
+
+  deleteList(customListId: number) {
+    this.accountService.deleteCustomList(customListId).subscribe(resp => {
+      this.deleteMessage = resp.status_message;
+    });
+  }
+
   createNewList() {
     //formulario y peticion
   }

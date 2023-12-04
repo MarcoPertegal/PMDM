@@ -24,8 +24,6 @@ export class PageCustomListDetailsComponent implements OnInit {
         this.accountService.getCustomListDetails(this.customListId).subscribe(resp => {
           this.customListDetails = resp;
           this.movieOrSerieList = resp.items;
-          console.log("aaaaaaa" + this.movieOrSerieList);
-          //NOSE PORQUE SOLO DEVUELVE UN ELEMENTO
         })
       }
     });

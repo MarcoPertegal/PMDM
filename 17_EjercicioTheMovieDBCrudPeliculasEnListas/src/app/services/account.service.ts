@@ -7,6 +7,7 @@ import { MovieListResponse } from '../models/movie-list.interface';
 import { AddItemResponse } from '../models/add-item.interface';
 import { AccountCustomListResponse } from '../models/account-custom-list.interface';
 import { AccountCustomListDetailsResponse } from '../models/account-custom-list-details.interface';
+import { AccountCustomListDeleteResponse } from '../models/account-custom-list-delete.interface';
 
 
 
@@ -148,9 +149,19 @@ export class AccountService {
         }
       });
   }
-  //https://developer.themoviedb.org/reference/list-details para hacer la consulta de list details
+
   getCustomListDetails(listId: number): Observable<AccountCustomListDetailsResponse> {
     return this.http.get<AccountCustomListDetailsResponse>(`${environment.baseUrl}/list/${listId}`,
+      {
+        headers: {
+          accept: 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      });
+  }
+
+  deleteCustomList(listId: number): Observable<AccountCustomListDeleteResponse> {
+    return this.http.delete<AccountCustomListDeleteResponse>(`${environment.baseUrl}/list/${listId}`,
       {
         headers: {
           accept: 'application/json',

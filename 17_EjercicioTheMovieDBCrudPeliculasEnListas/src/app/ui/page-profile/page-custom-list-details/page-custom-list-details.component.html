@@ -1,8 +1,8 @@
 <h3 class="text-light">{{customListDetails.name}}</h3>
 
-@for (ms of movieOrSerieList; track $index) {
 <div class="container">
     <div class="row">
+        @for (ms of movieOrSerieList; track $index) {
         <div class="contenedor col-2 pt-5">
             <img [src]=getImage(ms.poster_path) alt="" width="270px">
             <div class="text container">
@@ -18,6 +18,6 @@
                 </div>
             </div>
         </div>
+        }
     </div>
 </div>
-}
