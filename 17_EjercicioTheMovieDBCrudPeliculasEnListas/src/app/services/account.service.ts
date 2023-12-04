@@ -185,6 +185,19 @@ export class AccountService {
         }
       });
   }
+
+  clearCustomList(listId: number) {
+    return this.http.post<AccountCustomListCreateResponse>(`${environment.baseUrl}/list/${listId}/clear?confirm=true`,
+      {
+
+      },
+      {
+        headers: {
+          accept: 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      });
+  }
 }
 
 

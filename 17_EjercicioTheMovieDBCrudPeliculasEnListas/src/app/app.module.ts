@@ -12,6 +12,7 @@ import { AuthenticationApprovedComponent } from './components/profile/authentica
 import { FooterComponent } from './components/reutilizables/footer/footer.component';
 import { NavComponent } from './components/reutilizables/nav/nav.component';
 import { PageCustomListDetailsComponent } from './ui/page-profile/page-custom-list-details/page-custom-list-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PageCustomListDetailsComponent } from './ui/page-profile/page-custom-li
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    NgbNavModule
+    NgbNavModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

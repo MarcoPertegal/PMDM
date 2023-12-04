@@ -22,7 +22,6 @@ export class PageProfileComponent implements OnInit {
   countFavorite: number = 0;
   countWatchList: number = 0;
   selectedCustomListId!: number;
-  deleteMessage!: string;
 
   constructor(
     private modalService: NgbModal,
@@ -60,8 +59,8 @@ export class PageProfileComponent implements OnInit {
 
   deleteList(customListId: number) {
     this.accountService.deleteCustomList(customListId).subscribe(resp => {
-      this.deleteMessage = resp.status_message;
-      window.alert('Lista eliminada.');
+      window.alert(resp.status_message);
+      window.location.reload();
     });
   }
 
@@ -70,8 +69,14 @@ export class PageProfileComponent implements OnInit {
     description: new FormControl('')
   })
 
+  closeModal() {
+    this.modalService.dismissAll();
+  }
+
   createNewList() {
-    this.accountService.createCustomList(this.newCustomList.value.name!, this.newCustomList.value.description!).subscribe();
+    this.accountService.createCustomList(this.newCustomList.value.name!, this.newCustomList.value.description!).subscribe(() => {
+      this.closeModal();
+    });
   }
 
   createModal(createCustomList: any) {

@@ -20,10 +20,11 @@ export class PageCustomListDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
       if (idParam) {
-        this.customListId = +idParam;
+        this.customListId = +idParam; //el mas es para pasar de string a number para hacer la peticion
         this.accountService.getCustomListDetails(this.customListId).subscribe(resp => {
           this.customListDetails = resp;
           this.movieOrSerieList = resp.items;
+          console.log("aaaaa" + this.movieOrSerieList);
         })
       }
     });
@@ -31,6 +32,10 @@ export class PageCustomListDetailsComponent implements OnInit {
 
   getImage(poster_path: any) {
     return `https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path}`
+  }
+
+  clearList(customListId: number) {
+    this.accountService.clearCustomList(customListId).subscribe();
   }
 
 }
