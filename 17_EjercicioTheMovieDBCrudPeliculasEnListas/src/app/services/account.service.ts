@@ -9,6 +9,7 @@ import { AccountCustomListResponse } from '../models/account-custom-list.interfa
 import { AccountCustomListDetailsResponse } from '../models/account-custom-list-details.interface';
 import { AccountCustomListDeleteResponse } from '../models/account-custom-list-delete.interface';
 import { AccountCustomListCreateResponse } from '../models/account-custom-list-create.interface';
+import { AccountCustomListAddResponse } from '../models/account-custom-list-add.interface';
 
 
 
@@ -187,9 +188,22 @@ export class AccountService {
   }
 
   clearCustomList(listId: number) {
-    return this.http.post<AccountCustomListCreateResponse>(`${environment.baseUrl}/list/${listId}/clear?confirm=true`,
+    return this.http.post(`${environment.baseUrl}/list/${listId}/clear?confirm=true`,
       {
 
+      },
+      {
+        headers: {
+          accept: 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      });
+  }
+
+  addToCustomList(itemId: number, listId: number): Observable<AccountCustomListAddResponse> {
+    return this.http.post<AccountCustomListAddResponse>(`${environment.baseUrl}/list/${listId}/add_item`,
+      {
+        "media_id": `${itemId}`
       },
       {
         headers: {

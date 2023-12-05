@@ -35,12 +35,14 @@
             <li [ngbNavItem]="3">
                 <button ngbNavLink>Custom Lists</button>
                 <ng-template ngbNavContent>
-                    <button type="button" class="btn btn-light ms-3" (click)="createModal(createCustomList)">Create new
+                    <button type="button" class="btn btn-light ms-3" (click)="openCreateModal(createCustomList)">Create
+                        new
                         list</button>
                     @for (cl of movieCustomList; track $index) {
                     <div class="listItem rounded-3 m-3 p-2 d-flex">
                         <p class="text-light">{{cl.name}}</p>
-                        <button type="button" class="btn btn-light ms-3" (click)="deleteList(cl.id)">
+                        <button type="button" class="btn btn-light ms-3"
+                            (click)="openDeleteModal(cl.id, deleteCustomList)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-trash" viewBox="0 0 16 16">
                                 <path
@@ -58,6 +60,7 @@
                                     d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
                             </svg>
                         </button>
+                        <h4 class="text-light ms-3">{{cl.item_count}}</h4>
                     </div>
                     }
                 </ng-template>
@@ -86,5 +89,20 @@
             </div>
             <button type="submit" class="btn btn-outline-dark" form="newCustomList">Save</button>
         </form>
+    </div>
+</ng-template>
+
+<ng-template #deleteCustomList let-modal>
+    <div class="modal-header bg-dark">
+        <h4 class="modal-title text-white" id="modal-basic-title">Sure you want to delete this list?</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body bg-secondary">
+        <button type="button" class="btn btn-light ms-3" (click)="deleteList()">
+            <h2>YES</h2>
+        </button>
+        <button type="button" class="btn btn-light ms-3" (click)="modal.dismiss('Cross click')">
+            <h2>NO</h2>
+        </button>
     </div>
 </ng-template>

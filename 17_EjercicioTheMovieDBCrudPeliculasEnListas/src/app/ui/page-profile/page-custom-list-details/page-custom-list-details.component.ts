@@ -36,6 +36,7 @@ export class PageCustomListDetailsComponent implements OnInit {
 
   clearList(customListId: number) {
     this.accountService.clearCustomList(customListId).subscribe();
+    window.location.reload();
   }
 
 }

@@ -23,6 +23,7 @@ export class PageProfileComponent implements OnInit {
   countWatchList: number = 0;
   selectedCustomListId!: number;
 
+
   constructor(
     private modalService: NgbModal,
     private accountService: AccountService,
@@ -57,11 +58,8 @@ export class PageProfileComponent implements OnInit {
     this.router.navigate([`/page-custom-list-details/${customListId}`]);
   }
 
-  deleteList(customListId: number) {
-    this.accountService.deleteCustomList(customListId).subscribe(resp => {
-      window.alert(resp.status_message);
-      window.location.reload();
-    });
+  closeModal() {
+    this.modalService.dismissAll();
   }
 
   newCustomList = new FormGroup({
@@ -69,17 +67,27 @@ export class PageProfileComponent implements OnInit {
     description: new FormControl('')
   })
 
-  closeModal() {
-    this.modalService.dismissAll();
-  }
-
   createNewList() {
     this.accountService.createCustomList(this.newCustomList.value.name!, this.newCustomList.value.description!).subscribe(() => {
       this.closeModal();
+      window.location.reload();
     });
   }
 
-  createModal(createCustomList: any) {
+  openCreateModal(createCustomList: any) {
     this.modalService.open(createCustomList);
   }
+
+  deleteList() {
+    this.accountService.deleteCustomList(this.selectedCustomListId).subscribe(resp => {
+      window.alert(resp.status_message);
+      window.location.reload();
+    });
+  }
+
+  openDeleteModal(customListId: number, deleteCustomList: any) {
+    this.modalService.open(deleteCustomList);
+    this.selectedCustomListId = customListId;
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../../../models/movie-list.interface';
 import { AccountService } from '../../../services/account.service';
@@ -13,6 +13,8 @@ export class MovieItemListComponent implements OnInit {
   id!: number;
   favoriteIds!: string | null;
   isFavoriteMovie: boolean = false;
+  @Output() addItemToList = new EventEmitter();
+
 
   constructor(private router: Router, private accountService: AccountService) { }
 
@@ -24,6 +26,7 @@ export class MovieItemListComponent implements OnInit {
       const arrayFavoriteIds = this.favoriteIds!.split(',');
       this.isFavoriteMethod(arrayFavoriteIds);
     }
+
   }
 
   getImage() {
@@ -45,8 +48,9 @@ export class MovieItemListComponent implements OnInit {
       console.log("Película con id:" + id + " eliminada de favoritos");
     });
   }
-
-  addToCustomlist(id: number) {
-
+  openAddModal() {
+    this.addItemToList.emit(this.movie.id.toString());
   }
+
+
 }
