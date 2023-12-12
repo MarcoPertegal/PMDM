@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "dist/18_CursoAngularFirebase",
+    "public": "dist/18-Curso-angular-firebase/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
