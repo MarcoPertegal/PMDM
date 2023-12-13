@@ -23,6 +23,7 @@ export class AuthService {
 
   glogging() {
     console.log('login google');
+    this.auth
   }
 
   logout() {
