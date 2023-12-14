@@ -1,0 +1,38 @@
+<div class="container">
+  <div *ngIf="authService.user | async as user; else login" class="loginDiv">
+    <h1>USUARIO LOGEADO</h1>
+    <span class="text-center fs-3 fw-bold">{{user.uid}} - {{user.email}}</span>
+    <div class="text-center w-50 p-3 mx-auto">
+      <button (click)="authService.logout()" class="btn btn-warning">Logout</button>
+    </div>
+    <h2>AÑADIR IMAGEN</h2>
+    <span>Imagen de usuario</span><br>
+    <input type="file" (change)="firestorage.upload($event)" accept=".png, .jpg, .jpeg"><br>
+    <div class="result" *ngIf="firestorage.downloadURL | async; let url">
+      <img [src]="url" alt="imagen" width="600px">
+    </div>
+    <h2>LISTA USUARIOS</h2>
+    <app-user-list></app-user-list>
+  </div>
+</div>
+
+<ng-template #login>
+  <div class="w-25 text-center mx-auto">
+    <form class="border-2 border-white rounded-3 border p-3" method="post">
+      <div class="mb-3">
+        <input type="email" class="form-control" name="email" [(ngModel)]="authService.email" placeholder="EMAIL">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" name="password" [(ngModel)]="authService.password"
+          placeholder="PASSWORD">
+      </div>
+      <button (click)="authService.loging()" type="submit"
+        class="btn btn-warning mt-3 border-1 border border-black">LOGIN</button>
+      <button (click)="authService.gloging()" type="submit"
+        class="btn btn-warning mt-3 border-1 border border-black">GOOGLE</button>
+
+    </form>
+  </div>
+</ng-template>
+
+<router-outlet></router-outlet>

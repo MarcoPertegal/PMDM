@@ -1,0 +1,6 @@
+@for (u of usersList; track $index) {
+<div class="border rounded border-2 border-black p-2 mt-3">
+    <span class="text-center fw-bold">{{u.email}} </span>
+    <button class="btn btn-danger" (click)="auth.removeUser(u.key)">ELIMINAR</button>
+</div>
+}
