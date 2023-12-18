@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "19_ejemplovideoangularfirebaselogin": {
+    "19_EjemploFirebaseAddUserAndListUsers": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/19_ejemplovideoangularfirebaselogin",
+            "outputPath": "dist/19-ejemplo-firebase-add-user-and-list-users",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "19_ejemplovideoangularfirebaselogin:build:production"
+              "buildTarget": "19_EjemploFirebaseAddUserAndListUsers:build:production"
             },
             "development": {
-              "buildTarget": "19_ejemplovideoangularfirebaselogin:build:development"
+              "buildTarget": "19_EjemploFirebaseAddUserAndListUsers:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "19_ejemplovideoangularfirebaselogin:build"
+            "buildTarget": "19_EjemploFirebaseAddUserAndListUsers:build"
           }
         },
         "test": {
@@ -106,8 +106,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

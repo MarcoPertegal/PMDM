@@ -1,5 +1,5 @@
 {
-  "name": "19-ejemplovideoangularfirebaselogin",
+  "name": "19-ejemplo-firebase-add-user-and-list-users",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:19_ejemplovideoangularfirebaselogin": "node dist/19_ejemplovideoangularfirebaselogin/server/server.mjs"
+    "serve:ssr:19_EjemploFirebaseAddUserAndListUsers": "node dist/19-ejemplo-firebase-add-user-and-list-users/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -15,7 +15,6 @@
     "@angular/common": "^17.0.0",
     "@angular/compiler": "^17.0.0",
     "@angular/core": "^17.0.0",
-    "@angular/fire": "^17.0.0",
     "@angular/forms": "^17.0.0",
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",

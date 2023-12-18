@@ -5,14 +5,14 @@ import { getAnalytics } from "firebase/analytics";
 export const environment = {
     production: false,
     firebaseConfig: {
-        apiKey: "AIzaSyB4HFHmRqA8_Kz4ERsQmINtOIqqjHXg0qI",
-        authDomain: "cursoangularfirebase-mpertegal.firebaseapp.com",
-        databaseURL: "https://cursoangularfirebase-mpertegal-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "cursoangularfirebase-mpertegal",
-        storageBucket: "cursoangularfirebase-mpertegal.appspot.com",
-        messagingSenderId: "130226106076",
-        appId: "1:130226106076:web:c882e5b89c85e0b1f34e19",
-        measurementId: "G-G7FFY3EPWL"
+        apiKey: "AIzaSyAseAxK4WSKg8XebzAGOHLdzA8UmlZrp70",
+        authDomain: "cursoangularfirebase-prod.firebaseapp.com",
+        databaseURL: "https://cursoangularfirebase-prod-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "cursoangularfirebase-prod",
+        storageBucket: "cursoangularfirebase-prod.appspot.com",
+        messagingSenderId: "763825322265",
+        appId: "1:763825322265:web:5c1db143bea89b3c9e6d88",
+        measurementId: "G-3SYXZJNTW7"
     },
     title: 'CursoAngularFirebase DEV'
 };
