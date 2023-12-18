@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "exampleadduserandlistusers": {
+      "hosting": {
+        "ejemplofirebaseadduserandlist": [
+          "exampleadduserandlistusers"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "exampleadduserandlistusers"
+  }
+}
