@@ -1,1 +1,18 @@
-<p>home works!</p>
+<!-- <div class="container"> -->
+<!-- <h1>NEW USER</h1> -->
+<!-- <form (ngSubmit)="addPlayer()"> -->
+<!-- <p>name</p> -->
+<!-- <input name="name" [(ngModel)]="name" /> -->
+<!-- <button type="submit">Guardar</button> -->
+<!-- </form> -->
+<!-- </div> -->
+<div class="container col-4 bg-info p-4 rounded-4 mt-5 shadow">
+    <h1 class="text-light">TICTACTOE</h1>
+    <form (ngSubmit)="addPlayer()">
+        <div class="form-group">
+            <input type="text" class="form-control mb-3 mt-4" id="name" placeholder="Enter user name" [(ngModel)]="name"
+                name="name">
+        </div>
+        <button type="submit" class="btn btn-warning w-100 text-light">PLAY NOW</button>
+    </form>
+</div>

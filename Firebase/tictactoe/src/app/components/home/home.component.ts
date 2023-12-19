@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PlayerService } from '../../services/player.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  /*Seguir ejemplo primero para registrar un player 1 */
+  name: string = '';
+
+  constructor(public playerService: PlayerService, private router: Router) { }
+
+
+  addPlayer() {
+    this.playerService.createPlayer(this.name);
+    this.router.navigateByUrl('/table');
+  }
 }

@@ -17,6 +17,17 @@
     <h2>Status: {{ status }}</h2>
     <table>
         <tbody>
+            <!-- @for (board_row of board; track board_row; let x = $index) { -->
+            <!-- <tr> -->
+            <!-- @for (cell of board_row; track cell; let y = $index; (click)="onclick(x, y)") { -->
+            <!-- <td> -->
+            <!-- {{ cell }} -->
+            <!-- </td> -->
+            <!-- } -->
+            <!-- </tr> -->
+            <!-- } -->
+
+
             <tr *ngFor="let board_row of board; let x = index">
                 <td *ngFor="let cell of board_row; let y = index" (click)="onclick(x, y)">
                     {{ cell }}
