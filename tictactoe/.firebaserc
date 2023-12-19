@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tictactoe-mpertegal": {
+      "hosting": {
+        "tictactoe": [
+          "tictactoe-mpertegal"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tictactoe-mpertegal"
+  }
+}
