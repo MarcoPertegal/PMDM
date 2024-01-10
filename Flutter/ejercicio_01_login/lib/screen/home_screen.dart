@@ -9,31 +9,69 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.red,
+        color: const Color(0xFFE62F16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Path',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 65,
-                fontWeight: FontWeight.bold,
+            Expanded(
+              child: Image.asset(
+                'assets/path_logo.png',
+                width: 400,
+                height: 400,
               ),
             ),
+            const Expanded(
+              child: Text(
+                'Beautiful, Private Sharing',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
             const Text(
-              'Beautiful, Private Sharing',
+              'Already have an account',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 15,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
               ),
             ),
-            const SizedBox(height: 120),
-            Image.asset(
-              'assets/path_logo.png',
-              width: 200,
-              height: 200,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      child: Text("2 Sign Up"), onPressed: () {})),
+            ),
+            Expanded(
+                child: OutlinedButton(
+                    child: const Text("2 Sign Up"), onPressed: () {})),
+            RichText(
+              text: const TextSpan(
+                text: 'Terms of User',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    decoration: TextDecoration.underline),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'and',
+                    style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none),
+                  ),
+                  TextSpan(
+                    text: ' Privacy Policy',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        decoration: TextDecoration.underline),
+                  ),
+                ],
+              ),
             ),
             const SingUp(),
             const LogIn()
