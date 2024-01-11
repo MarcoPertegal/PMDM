@@ -44,11 +44,32 @@ class HomeScreen extends StatelessWidget {
               child: SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      child: Text("2 Sign Up"), onPressed: () {})),
+                      child: const Text(
+                        '2 Sing up',
+                        style: TextStyle(
+                          color: Color(0xFFE62F16),
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      onPressed: () {})),
             ),
-            Expanded(
-                child: OutlinedButton(
-                    child: const Text("2 Sign Up"), onPressed: () {})),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      child: const Text(
+                        '2 Log In',
+                        style: TextStyle(
+                          color: Color(0xFFE62F16),
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      onPressed: () {})),
+            ),
             RichText(
               text: const TextSpan(
                 text: 'Terms of User',
@@ -73,6 +94,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 60),
             const SingUp(),
             const LogIn()
           ],
