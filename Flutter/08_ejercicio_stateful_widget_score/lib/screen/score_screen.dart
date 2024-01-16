@@ -10,7 +10,7 @@ class ScoreScreen extends StatefulWidget {
 class _ScoreScreenState extends State<ScoreScreen> {
   int teamAPoints = 0;
   int teamBPoints = 0;
-  Color _backgroundColor = Colors.white;
+  bool _colorTheme = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
       ),
       body: Center(
         child: Container(
-          color: _backgroundColor,
+          color: _colorTheme ? Colors.black : Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -30,23 +30,26 @@ class _ScoreScreenState extends State<ScoreScreen> {
                 children: [
                   Text(
                     '$teamAPoints',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: TextStyle(
+                      color: _colorTheme ? Colors.white : Colors.black,
+                    ),
                   ),
+                  SizedBox(height: 16),
                   Text(
                     '$teamBPoints',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        _backgroundColor = _backgroundColor == Colors.white
-                            ? Colors.black
-                            : Colors.white;
-                      });
-                    },
-                    child: Text('Cambiar Color'),
+                    style: TextStyle(
+                      color: _colorTheme ? Colors.white : Colors.black,
+                    ),
                   ),
                 ],
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    _colorTheme = !_colorTheme;
+                  });
+                },
+                child: Text('Cambiar Color'),
               ),
             ],
           ),
