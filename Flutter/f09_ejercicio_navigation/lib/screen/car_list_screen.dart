@@ -7,7 +7,11 @@ class CarListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [CardItem()]),
+      appBar: AppBar(
+        title: Text('Score Screen'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: ListView(children: [CardItem(), CardItem()]),
     );
   }
 }
