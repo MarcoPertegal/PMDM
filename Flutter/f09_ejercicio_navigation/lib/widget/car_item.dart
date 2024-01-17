@@ -40,7 +40,7 @@ class CarItem extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
-                    SizedBox(width: 250),
+                    SizedBox(width: 150),
                     Text(
                       '$numOfertas ofertas',
                       style: const TextStyle(
