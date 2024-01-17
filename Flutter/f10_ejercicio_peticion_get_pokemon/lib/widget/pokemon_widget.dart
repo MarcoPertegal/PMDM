@@ -1,4 +1,18 @@
+import 'package:f10_ejercicio_peticion_get_pokemon/models/pokemon_response/pokemon_response.dart';
+import 'package:f10_ejercicio_peticion_get_pokemon/widget/pokemon_item.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+Future<PokemonResponse> fetchPokemon() async {
+  final response =
+      await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/ditto'));
+
+  if (response.statusCode == 200) {
+    return PokemonResponse.fromJson(response.body);
+  } else {
+    throw Exception('Failed to load album');
+  }
+}
 
 class PockemonWidget extends StatefulWidget {
   const PockemonWidget({super.key});
@@ -8,114 +22,28 @@ class PockemonWidget extends StatefulWidget {
 }
 
 class _PockemonWidgetState extends State<PockemonWidget> {
+  late Future<PokemonResponse> pokemon;
+
+  @override
+  void initState() {
+    super.initState();
+    pokemon = fetchPokemon();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: EdgeInsets.all(15),
-      elevation: 10,
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      tag,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 15, 106, 60),
-                        fontSize: 12,
-                      ),
-                    ),
-                    SizedBox(width: 150),
-                    Text(
-                      '$numOfertas ofertas',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: Color.fromARGB(255, 123, 123, 123),
-                        fontSize: 12,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const Image(image: NetworkImage('')),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(
-                modelo,
-                style: const TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                tipoCoche,
-                style: const TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Color.fromARGB(255, 123, 123, 123),
-                  fontSize: 12,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Row(
-                children: [
-                  Icon(Icons.fitbit),
-                  Text("Man."),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Icon(Icons.ac_unit),
-                  Text("A/A"),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Icon(Icons.person),
-                  Text("4"),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Icon(Icons.wallet_travel),
-                  Text("1"),
-                ],
-              ),
-              Divider(),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text(
-                  "$precio €",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromARGB(255, 0, 101, 183),
-                    fontSize: 16,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "SELECCIONAR",
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Color.fromARGB(255, 0, 101, 183),
-                      fontSize: 16,
-                    ),
-                  ),
-                )
-              ])
-            ]),
-          ),
-        ],
+    return Container(
+      padding: const EdgeInsets.all(15),
+      child: FutureBuilder<PokemonResponse>(
+        future: pokemon,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return PokemonItem(pokemon: snapshot.data!);
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator();
+        },
       ),
     );
   }
