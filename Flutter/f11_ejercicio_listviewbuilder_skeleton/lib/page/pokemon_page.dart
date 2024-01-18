@@ -1,4 +1,3 @@
-import 'package:f10_ejercicio_peticion_get_pokemon/widget/pokemon_widget.dart';
 import 'package:flutter/material.dart';
 
 class PokemonPage extends StatelessWidget {
@@ -9,7 +8,7 @@ class PokemonPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Pokemon Card',
+          'Pokemon List',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Color.fromARGB(255, 255, 255, 255),
@@ -18,7 +17,7 @@ class PokemonPage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 219, 140, 243),
       ),
-      body: ListView(children: const [PokemonWidget()]),
+      body: ListView(children: const []),
     );
   }
 }

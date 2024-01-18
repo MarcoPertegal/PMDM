@@ -1,4 +1,4 @@
-import 'package:f10_ejercicio_peticion_get_pokemon/models/pokemon_response/pokemon_response.dart';
+import 'package:f11_ejercicio_listviewbuilder_skeleton/models/pokemon_response/pokemon_response.dart';
 import 'package:flutter/material.dart';
 
 class PokemonItem extends StatelessWidget {

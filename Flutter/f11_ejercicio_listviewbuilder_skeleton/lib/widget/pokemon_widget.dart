@@ -1,5 +1,5 @@
-import 'package:f10_ejercicio_peticion_get_pokemon/models/pokemon_response/pokemon_response.dart';
-import 'package:f10_ejercicio_peticion_get_pokemon/widget/pokemon_item.dart';
+import 'package:f11_ejercicio_listviewbuilder_skeleton/models/pokemon_response/pokemon_response.dart';
+import 'package:f11_ejercicio_listviewbuilder_skeleton/widget/pokemon_item.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
