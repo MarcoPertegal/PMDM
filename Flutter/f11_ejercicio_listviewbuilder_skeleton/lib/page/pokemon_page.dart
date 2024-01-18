@@ -18,8 +18,8 @@ class PokemonPage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 219, 140, 243),
       ),
-      //body: ListView(children: const [PokemonWidget()]),
-      body: ListView.builder(
+      body: ListView(children: const [PokemonWidget()]),
+      /*body: ListView.builder(
         itemCount: items.length,
         prototypeItem: ListTile(
           title: Text(items.first),
@@ -33,7 +33,7 @@ class PokemonPage extends StatelessWidget {
         //si es dinamica con colocar aqui el estilo de la card se tendria que pintar muchas veces usando
         //el listView.Builder y demomneto solo estoy trabajando con la lista de pokemon despues habría que ver
         //usando la url que devuelve cada elemento de result como acceder a cada sprite
-      ),
+      ),*/
     );
   }
 }

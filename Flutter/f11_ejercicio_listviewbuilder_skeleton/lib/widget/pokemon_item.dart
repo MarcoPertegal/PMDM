@@ -25,7 +25,7 @@ class PokemonItem extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
-                pokemon.results![0].name!,
+                pokemon.results![1].name!,
                 style: const TextStyle(
                   fontWeight: FontWeight.normal,
                   color: Color.fromARGB(255, 0, 0, 0),

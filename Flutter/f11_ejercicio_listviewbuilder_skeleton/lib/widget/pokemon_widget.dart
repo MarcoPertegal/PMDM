@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<PokemonListResponse> fetchPokemon() async {
   final response =
-      await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/ditto'));
+      await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/'));
 
   if (response.statusCode == 200) {
     return PokemonListResponse.fromJson(response.body);
