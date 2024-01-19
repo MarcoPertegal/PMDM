@@ -38,7 +38,7 @@ class _PockemonWidgetState extends State<PokemonWidget> {
         future: pokemon,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return PokemonItem(pokemon: snapshot.data!);
+            return PokemonItem(pokemon: snapshot.data!.results!);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }

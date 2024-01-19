@@ -1,4 +1,4 @@
-import 'package:f11_ejercicio_listviewbuilder_skeleton/widget/pokemon_widget.dart';
+import 'package:f11_ejercicio_listviewbuilder_skeleton/widget/pokemon_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class PokemonPage extends StatelessWidget {

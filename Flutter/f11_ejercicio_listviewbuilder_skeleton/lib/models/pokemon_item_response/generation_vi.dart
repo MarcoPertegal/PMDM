@@ -5,7 +5,7 @@ import 'xy.dart';
 
 class GenerationVi {
   OmegarubyAlphasapphire? omegarubyAlphasapphire;
-  XY? xY;
+  Xy? xY;
 
   GenerationVi({this.omegarubyAlphasapphire, this.xY});
 

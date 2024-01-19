@@ -1,10 +1,10 @@
-import 'package:f11_ejercicio_listviewbuilder_skeleton/models/pokemon_list_response/pokemon_list_response.dart';
+import 'package:f11_ejercicio_listviewbuilder_skeleton/models/pokemon_item_response/pokemon_item_response.dart';
 import 'package:flutter/material.dart';
 
 class PokemonItem extends StatelessWidget {
-  const PokemonItem({super.key, required this.pokemon});
+  const PokemonItem({super.key, required this.pokemonItem});
 
-  final PokemonListResponse pokemon;
+  final PokemonItemResponse pokemonItem;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PokemonItem extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
-                pokemon.results![1].name!,
+                '${pokemonItem.name}',
                 style: const TextStyle(
                   fontWeight: FontWeight.normal,
                   color: Color.fromARGB(255, 0, 0, 0),
