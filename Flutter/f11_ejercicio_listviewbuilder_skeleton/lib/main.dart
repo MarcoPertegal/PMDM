@@ -1,4 +1,5 @@
 import 'package:f11_ejercicio_listviewbuilder_skeleton/page/pokemon_page.dart';
+import 'package:f11_ejercicio_listviewbuilder_skeleton/widget/pokemon_list_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PokemonPage(),
+      home: const PokemonListWidget(),
     );
   }
 }

@@ -22,11 +22,11 @@ class PokemonListWidget extends StatefulWidget {
 }
 
 class _PokemonListWidgetState extends State<PokemonListWidget> {
-  late Future<PokemonListResponse> pokemonListResponse;
+  late Future<PokemonListResponse> pokemonList;
   @override
   void initState() {
     super.initState();
-    pokemonListResponse = fetchPokemon();
+    pokemonList = fetchPokemon();
   }
 
   @override
@@ -34,10 +34,10 @@ class _PokemonListWidgetState extends State<PokemonListWidget> {
     return Container(
       padding: const EdgeInsets.all(15),
       child: FutureBuilder<PokemonListResponse>(
-        future: pokemonListResponse,
+        future: pokemonList,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return PokemonPage(pokemonListResponse: snapshot.data!.results!);
+            return PokemonPage(pokemonList: snapshot.data!.results!);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }

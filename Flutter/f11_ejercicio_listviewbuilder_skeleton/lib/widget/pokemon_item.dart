@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 
 class PokemonItem extends StatelessWidget {
   const PokemonItem({super.key, required this.pokemonItem});
-
   final PokemonItemResponse pokemonItem;
-
   @override
   Widget build(BuildContext context) {
     return Card(

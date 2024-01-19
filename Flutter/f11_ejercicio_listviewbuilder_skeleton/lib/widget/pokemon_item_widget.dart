@@ -3,9 +3,11 @@ import 'package:f11_ejercicio_listviewbuilder_skeleton/widget/pokemon_item.dart'
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<PokemonListResponse> fetchPokemon() async {
+import '../models/pokemon_item_response/pokemon_item_response.dart';
+
+Future<PokemonListResponse> fetchPokemon(String name) async {
   final response =
-      await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/'));
+      await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/$name'));
 
   if (response.statusCode == 200) {
     return PokemonListResponse.fromJson(response.body);
@@ -14,20 +16,21 @@ Future<PokemonListResponse> fetchPokemon() async {
   }
 }
 
-class PokemonWidget extends StatefulWidget {
-  const PokemonWidget({super.key});
+class PokemonItemWidget extends StatefulWidget {
+  const PokemonItemWidget({super.key, required this.pokemonName});
+  final String pokemonName;
 
   @override
-  State<PokemonWidget> createState() => _PockemonWidgetState();
+  State<PokemonItemWidget> createState() => _PokemonItemWidgetState();
 }
 
-class _PockemonWidgetState extends State<PokemonWidget> {
+class _PokemonItemWidgetState extends State<PokemonItemWidget> {
   late Future<PokemonListResponse> pokemon;
 
   @override
   void initState() {
     super.initState();
-    pokemon = fetchPokemon();
+    pokemon = fetchPokemon(widget.pokemonName);
   }
 
   @override
@@ -38,7 +41,7 @@ class _PockemonWidgetState extends State<PokemonWidget> {
         future: pokemon,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return PokemonItem(pokemon: snapshot.data!.results!);
+            return PokemonItem(pokemon: snapshot.data!);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
