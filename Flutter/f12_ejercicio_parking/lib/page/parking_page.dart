@@ -14,7 +14,11 @@ class _ParkingPageState extends State<ParkingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Parking'),
+          backgroundColor: Color.fromARGB(255, 18, 65, 220),
+          title: const Text(
+            'Nearby parking lots',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
         ),
         body: Container(
           child: ListView.builder(

@@ -8,33 +8,52 @@ class ParkingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: EdgeInsets.all(15),
-      elevation: 10,
-      child: Column(
-        children: <Widget>[
-          Image(
-            image: NetworkImage(''),
-            width: 200,
-            height: 200,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(
+        elevation: 4.0,
+        child: Column(
+          children: [
+            ListTile(
+              title: Text(
                 parking.nombre!,
                 style: const TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ]),
-          ),
-        ],
-      ),
-    );
+              subtitle: Text(
+                  'Num Aparcamiento: ${parking.idAparcamiento.toString()!}'),
+              trailing: const Icon(Icons.local_parking,
+                  color: Color.fromARGB(255, 18, 65, 220)),
+            ),
+            SizedBox(
+              height: 200.0,
+              child: Image.network(
+                'https://www.parkingimagen.es/wp-content/uploads/2017/07/parking-1.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.centerLeft,
+              child: Text(parking.direccion!),
+            ),
+            Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Plazas totales: ${parking.plazastota.toString()}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 18, 65, 220),
+                            fontSize: 12,
+                          )),
+                      Text('Plazar libres: ${parking.plazaslibr.toString()}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 18, 65, 220),
+                            fontSize: 12,
+                          )),
+                    ]))
+          ],
+        ));
   }
 }
