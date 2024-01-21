@@ -1,4 +1,4 @@
-import 'package:f11_ejercicio_listviewbuilder_skeleton/widget/pokemon_list_widget.dart';
+import 'package:f12_ejercicio_parking/widget/parking_list_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PokemonListWidget(),
+      home: const ParkingListWidget(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:f11_ejercicio_listviewbuilder_skeleton/models/pokemon_list_respo
 import 'package:f11_ejercicio_listviewbuilder_skeleton/page/pokemon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:skeletonizer/skeletonizer.dart';
 
 Future<PokemonListResponse> fetchPokemon() async {
   final response =
