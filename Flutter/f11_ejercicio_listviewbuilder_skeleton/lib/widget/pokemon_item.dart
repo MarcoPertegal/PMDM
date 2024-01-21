@@ -13,7 +13,7 @@ class PokemonItem extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image(
-            image: NetworkImage(''),
+            image: NetworkImage(pokemon.sprites!.frontDefault!),
             width: 200,
             height: 200,
             fit: BoxFit.cover,
