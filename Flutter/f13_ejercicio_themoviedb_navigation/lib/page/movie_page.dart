@@ -1,15 +1,11 @@
+import 'package:f13_ejercicio_themoviedb_navigation/widget/movie_list_widget.dart';
 import 'package:flutter/material.dart';
 
-class MoviePage extends StatefulWidget {
+class MoviePage extends StatelessWidget {
   const MoviePage({super.key});
 
   @override
-  State<MoviePage> createState() => _MoviePageState();
-}
-
-class _MoviePageState extends State<MoviePage> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const MovieListWidget();
   }
 }

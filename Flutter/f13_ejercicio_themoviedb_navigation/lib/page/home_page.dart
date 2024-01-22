@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('The Movie DB'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
