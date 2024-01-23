@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<MovieListResponse> fetchMovie() async {
   final response = await http.get(Uri.parse(
-      'https://api.themoviedb.org/3/person/popular?api_key=18c6dd9c77bfcc97e862001655abfba9'));
+      'https://api.themoviedb.org/3/movie/popular?api_key=18c6dd9c77bfcc97e862001655abfba9'));
   if (response.statusCode == 200) {
     final toReturn = MovieListResponse.fromJson(response.body);
     return toReturn;
@@ -38,7 +38,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
         future: movieList,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            ListView.builder(
+            return ListView.builder(
                 itemCount: snapshot.data!.results!.length,
                 itemBuilder: (context, index) {
                   return MovieItem(

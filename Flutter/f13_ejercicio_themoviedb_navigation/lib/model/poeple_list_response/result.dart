@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'known_for.dart';
-
 class Result {
   bool? adult;
   int? gender;
@@ -11,7 +9,7 @@ class Result {
   String? originalName;
   double? popularity;
   String? profilePath;
-  List<KnownFor>? knownFor;
+  List<int>? knownFor;
 
   Result({
     this.adult,
@@ -34,9 +32,7 @@ class Result {
         originalName: data['original_name'] as String?,
         popularity: (data['popularity'] as num?)?.toDouble(),
         profilePath: data['profile_path'] as String?,
-        knownFor: (data['known_for'] as List<dynamic>?)
-            ?.map((e) => KnownFor.fromMap(e as Map<String, dynamic>))
-            .toList(),
+        knownFor: (data['known_for'] as List<dynamic>?)?.cast<int>(),
       );
 
   Map<String, dynamic> toMap() => {
@@ -48,18 +44,12 @@ class Result {
         'original_name': originalName,
         'popularity': popularity,
         'profile_path': profilePath,
-        'known_for': knownFor?.map((e) => e.toMap()).toList(),
+        'known_for': knownFor,
       };
 
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Result].
   factory Result.fromJson(String data) {
     return Result.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
-  /// `dart:convert`
-  ///
-  /// Converts [Result] to a JSON string.
   String toJson() => json.encode(toMap());
 }

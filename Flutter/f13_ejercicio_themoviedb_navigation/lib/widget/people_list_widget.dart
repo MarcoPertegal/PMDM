@@ -38,7 +38,7 @@ class _PeopleListWidgetState extends State<PeopleListWidget> {
         future: peopleList,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            ListView.builder(
+            return ListView.builder(
                 itemCount: snapshot.data!.results!.length,
                 itemBuilder: (context, index) {
                   return PeopleItem(

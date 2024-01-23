@@ -36,7 +36,9 @@ class Result {
   factory Result.fromMap(Map<String, dynamic> data) => Result(
         adult: data['adult'] as bool?,
         backdropPath: data['backdrop_path'] as String?,
-        genreIds: data['genre_ids'] as List<int>?,
+        genreIds: (data['genre_ids'] as List<dynamic>?)
+            ?.map((dynamic id) => id as int)
+            .toList(),
         id: data['id'] as int?,
         originalLanguage: data['original_language'] as String?,
         originalTitle: data['original_title'] as String?,
