@@ -26,7 +26,7 @@ class MovieItem extends StatelessWidget {
             ),
             Container(
               child: ElevatedButton(
-                child: const Text('Open route'),
+                child: const Text('View Details'),
                 onPressed: () {
                   Navigator.push(
                     context,

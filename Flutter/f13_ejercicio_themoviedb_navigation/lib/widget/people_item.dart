@@ -1,4 +1,5 @@
 import 'package:f13_ejercicio_themoviedb_navigation/model/poeple_list_response/result.dart';
+import 'package:f13_ejercicio_themoviedb_navigation/page/people_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class PeopleItem extends StatelessWidget {
@@ -22,6 +23,18 @@ class PeopleItem extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               alignment: Alignment.centerLeft,
               child: Text(people.name!),
+            ),
+            Container(
+              child: ElevatedButton(
+                child: const Text('View Details'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PeopleDetailPage(id: people.id!)),
+                  );
+                },
+              ),
             ),
             Padding(
                 padding: EdgeInsets.all(15.0),

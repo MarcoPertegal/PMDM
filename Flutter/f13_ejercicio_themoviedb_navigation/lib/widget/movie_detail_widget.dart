@@ -1,5 +1,5 @@
 import 'package:f13_ejercicio_themoviedb_navigation/model/movie_detail_response/movie_detail_response.dart';
-import 'package:f13_ejercicio_themoviedb_navigation/page/movie_detail_page.dart';
+import 'package:f13_ejercicio_themoviedb_navigation/widget/movie_detail_item.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -38,8 +38,7 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
         future: movieDetail,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return MovieDetailPage(
-                movieDetail: snapshot!.data!); //para poder llamarlo aqui
+            return MovieDetailItem(movieDetail: snapshot.data!);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
