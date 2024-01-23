@@ -1,4 +1,5 @@
 import 'package:f13_ejercicio_themoviedb_navigation/model/movie_list_response/result.dart';
+import 'package:f13_ejercicio_themoviedb_navigation/page/movie_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieItem extends StatelessWidget {
@@ -14,7 +15,7 @@ class MovieItem extends StatelessWidget {
             SizedBox(
               height: 200.0,
               child: Image.network(
-                'https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.backdropPath}',
+                'https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.posterPath}',
                 fit: BoxFit.cover,
               ),
             ),
@@ -22,6 +23,18 @@ class MovieItem extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               alignment: Alignment.centerLeft,
               child: Text(movie.title!),
+            ),
+            Container(
+              child: ElevatedButton(
+                child: const Text('Open route'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MovieDetailPage(id: movie.id!)),
+                  );
+                },
+              ),
             ),
             Padding(
                 padding: EdgeInsets.all(15.0),

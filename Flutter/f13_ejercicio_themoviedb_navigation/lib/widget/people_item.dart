@@ -34,7 +34,7 @@ class PeopleItem extends StatelessWidget {
                             color: Color.fromARGB(255, 18, 65, 220),
                             fontSize: 12,
                           )),
-                      Text('Plazar libres: ${people.gender.toString()}',
+                      Text('Sexo: ${people.gender.toString()}',
                           style: const TextStyle(
                             fontWeight: FontWeight.normal,
                             color: Color.fromARGB(255, 18, 65, 220),
