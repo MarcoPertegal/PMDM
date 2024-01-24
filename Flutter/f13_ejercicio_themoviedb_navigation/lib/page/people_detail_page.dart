@@ -6,6 +6,8 @@ class PeopleDetailPage extends StatelessWidget {
   final int id;
   @override
   Widget build(BuildContext context) {
-    return PeopleDetailWidget(id: id);
+    return Scaffold(
+      body: PeopleDetailWidget(id: id),
+    );
   }
 }

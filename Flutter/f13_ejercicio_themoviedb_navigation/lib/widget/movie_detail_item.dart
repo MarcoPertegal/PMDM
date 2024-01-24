@@ -10,7 +10,7 @@ class MovieDetailItem extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text(movieDetail.title!),
+          Text(movieDetail.title!, style: const TextStyle(fontSize: 10)),
           Image.network(
             'https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movieDetail.posterPath!}',
             width: 250,
@@ -18,17 +18,12 @@ class MovieDetailItem extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Text(movieDetail.releaseDate!,
-                      style: const TextStyle(fontSize: 24)),
-                  Text(movieDetail.voteAverage.toString()!,
-                      style: const TextStyle(fontSize: 24)),
-                  Text('${movieDetail.voteAverage!}')
-                ],
-              ),
+              Text(movieDetail.releaseDate!,
+                  style: const TextStyle(fontSize: 10)),
+              Text(movieDetail.voteAverage.toString(),
+                  style: const TextStyle(fontSize: 20)),
             ],
           ),
         ],

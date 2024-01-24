@@ -7,6 +7,8 @@ class MovieDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MovieDetailWidget(id: id);
+    return Scaffold(
+      body: MovieDetailWidget(id: id),
+    );
   }
 }
