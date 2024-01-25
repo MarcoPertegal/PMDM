@@ -39,6 +39,7 @@ class _PeopleListWidgetState extends State<PeopleListWidget> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
+                scrollDirection: Axis.horizontal,
                 itemCount: snapshot.data!.results!.length,
                 itemBuilder: (context, index) {
                   return PeopleItem(

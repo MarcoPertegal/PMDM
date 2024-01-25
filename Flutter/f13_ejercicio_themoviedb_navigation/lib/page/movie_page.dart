@@ -6,6 +6,15 @@ class MoviePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MovieListWidget();
+    return const Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 300,
+          width: double.infinity,
+          child: MovieListWidget(),
+        ),
+      ],
+    );
   }
 }

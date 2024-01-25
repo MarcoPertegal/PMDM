@@ -33,24 +33,24 @@ class _MovieListWidgetState extends State<MovieListWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
-      child: FutureBuilder<MovieListResponse>(
-        future: movieList,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-                itemCount: snapshot.data!.results!.length,
-                itemBuilder: (context, index) {
-                  return MovieItem(
-                    movie: snapshot.data!.results![index],
-                  );
-                });
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
-          return const CircularProgressIndicator();
-        },
-      ),
-    );
+        padding: const EdgeInsets.all(15),
+        child: FutureBuilder<MovieListResponse>(
+          future: movieList,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: snapshot.data!.results!.length,
+                  itemBuilder: (context, index) {
+                    return MovieItem(
+                      movie: snapshot.data!.results![index],
+                    );
+                  });
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+            return const CircularProgressIndicator();
+          },
+        ));
   }
 }

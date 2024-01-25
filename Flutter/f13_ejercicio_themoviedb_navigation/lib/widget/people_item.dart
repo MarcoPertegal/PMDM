@@ -1,6 +1,7 @@
 import 'package:f13_ejercicio_themoviedb_navigation/model/poeple_list_response/result.dart';
 import 'package:f13_ejercicio_themoviedb_navigation/page/people_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class PeopleItem extends StatelessWidget {
   const PeopleItem({super.key, required this.people});
@@ -8,7 +9,40 @@ class PeopleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => PeopleDetailPage(id: people.id!)),
+        );
+      },
+      child: SizedBox(
+        width: 150,
+        height: 300,
+        child: Card(
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Stack(
+                children: [
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image:
+                        'https://media.themoviedb.org/t/p/w300_and_h450_bestv2${people.profilePath}',
+                    width: 150,
+                    height: 300,
+                    fit: BoxFit.cover,
+                  ),
+                ],
+              )),
+        ),
+      ),
+    );
+
+    /*return Card(
         elevation: 4.0,
         child: Column(
           children: [
@@ -55,6 +89,6 @@ class PeopleItem extends StatelessWidget {
                           )),
                     ]))
           ],
-        ));
+        ));*/
   }
 }

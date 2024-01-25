@@ -1,6 +1,7 @@
 import 'package:f13_ejercicio_themoviedb_navigation/model/movie_list_response/result.dart';
 import 'package:f13_ejercicio_themoviedb_navigation/page/movie_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class MovieItem extends StatelessWidget {
   const MovieItem({super.key, required this.movie});
@@ -8,6 +9,40 @@ class MovieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MovieDetailPage(id: movie.id!)),
+        );
+      },
+      child: SizedBox(
+        width: 150,
+        height: 300,
+        child: Card(
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Stack(
+                children: [
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image:
+                        'https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.posterPath}',
+                    width: 150,
+                    height: 300,
+                    fit: BoxFit.cover,
+                  ),
+                ],
+              )),
+        ),
+      ),
+    );
+
+    /*
     return Card(
         elevation: 4.0,
         child: Column(
@@ -55,6 +90,6 @@ class MovieItem extends StatelessWidget {
                           )),
                     ]))
           ],
-        ));
+        ));*/
   }
 }
