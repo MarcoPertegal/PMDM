@@ -1,5 +1,5 @@
 import 'package:f13_ejercicio_themoviedb_navigation/model/poeple_list_response/poeple_list_response.dart';
-import 'package:f13_ejercicio_themoviedb_navigation/widget/people_item.dart';
+import 'package:f13_ejercicio_themoviedb_navigation/widget/people_list_widget/people_item.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

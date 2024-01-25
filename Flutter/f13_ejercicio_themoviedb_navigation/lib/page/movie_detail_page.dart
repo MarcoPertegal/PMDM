@@ -1,4 +1,4 @@
-import 'package:f13_ejercicio_themoviedb_navigation/widget/movie_detail_widget.dart';
+import 'package:f13_ejercicio_themoviedb_navigation/widget/movie_detail_widget/movie_detail_widget.dart';
 import 'package:flutter/material.dart';
 
 class MovieDetailPage extends StatelessWidget {
