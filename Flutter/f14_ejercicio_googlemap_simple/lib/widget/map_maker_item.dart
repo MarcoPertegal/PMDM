@@ -22,13 +22,13 @@ class _MapMakerItemState extends State<MapMakerItem> {
           mapController = controller;
         },
         initialCameraPosition: CameraPosition(
-          target: LatLng(37.7749, -122.4194),
+          target: LatLng(37.3797, -6.0011),
           zoom: 12.0,
         ),
         markers: {
           Marker(
             markerId: MarkerId('salesianos_marker'),
-            position: LatLng(37.7749, -122.4194),
+            position: LatLng(37.3797, -6.0011),
             infoWindow: InfoWindow(title: 'Salesianos Triana'),
           ),
         },
