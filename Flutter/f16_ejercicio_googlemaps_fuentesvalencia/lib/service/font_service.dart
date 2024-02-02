@@ -1,8 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:chopper/chopper.dart';
+part 'font_service.chopper.dart';
 
-class FontService {
-  static const API = 'https://valencia.opendatasoft.com/api/explore/v2.1/catalog/datasets/fonts-daigua-publica-fuentes-de-agua-publica/records?limit=20'
-  static const headers = {
-    'apikey: AIzaSyA7JAUk7IriI1bV0wmRR_GrbPjr-CgFKeM'
+@ChopperApi()
+abstract class FontService extends ChopperService {
+  static FontService create() {
+    final client = ChopperClient(
+      baseUrl: Uri.parse(
+          'https://valencia.opendatasoft.com/api/explore/v2.1/catalog/datasets/'),
+      services: [_$FontService()],
+    );
+    return _$FontService(client);
   }
+
+  @Get(path: 'fonts-daigua-publica-fuentes-de-agua-publica/records')
+  Future<Response> fetchValenciasFontResponse();
 }
