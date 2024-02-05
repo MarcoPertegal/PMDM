@@ -8,12 +8,14 @@ class FontsResponse {
 
   FontsResponse({this.totalCount, this.results});
 
-  factory FontsResponse.fromMap(Map<String, dynamic> data) => FontsResponse(
-        totalCount: data['total_count'] as int?,
-        results: (data['results'] as List<dynamic>?)
-            ?.map((e) => Result.fromMap(e as Map<String, dynamic>))
-            .toList(),
-      );
+  factory FontsResponse.fromMap(Map<String, dynamic> data) {
+    return FontsResponse(
+      totalCount: data['total_count'] as int?,
+      results: (data['results'] as List<dynamic>?)
+          ?.map((e) => Result.fromMap(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
 
   Map<String, dynamic> toMap() => {
         'total_count': totalCount,

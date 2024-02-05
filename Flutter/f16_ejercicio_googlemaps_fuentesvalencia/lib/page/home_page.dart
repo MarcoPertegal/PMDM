@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         .then((value) {
       setState(() {
         response = value;
-        fonts = FontsResponse().fromJson(response.body!).results!;
+        fonts = FontsResponse.fromJson(response.body!).results!;
         for (var element in fonts) {
           list.add(element.geoPoint2d!);
         }
